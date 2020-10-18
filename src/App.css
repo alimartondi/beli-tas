@@ -84,7 +84,7 @@ body{
 .product-detail-content .product-name{
   font-size: 50px;
   font-weight: 600;
-  line-height: 2.8rem;
+  line-height: 3rem;
 }
 
 .product-detail-content .product-price{
@@ -97,7 +97,6 @@ body{
 .product-detail-color .black,
 .product-detail-color .green,
 .product-detail-color .pink{
-  margin-top: 30px;
   height: 35px;
   width: 35px;
   margin-right: 15px;

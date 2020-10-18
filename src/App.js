@@ -1,20 +1,25 @@
 import React from "react";
-import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Navbar from "./components/navbar";
 import ProductScreen from "./components/product";
-import MainScreen from "./components/main";
 import ProductDetailScreen from "./components/productDetail";
+import About from "./components/about";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      {/* <MainScreen />
-      <ProductScreen /> */}
-      <ProductDetailScreen />
-    </div>
+    <BrowserRouter>
+      {/* <Navbar /> */}
+
+      <Switch>
+        <Route exact path="/" component={ProductScreen} />
+        <Route exact path="/product:id:name" component={ProductDetailScreen} />
+        <Route exact path="/about" component={About} />
+        <Route path="/:">ger</Route>
+        <Route>404 Not Found</Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
