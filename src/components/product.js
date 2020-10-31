@@ -1,30 +1,34 @@
-import React from "react";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import { uniqueId } from "lodash";
-import { Container, Button } from "react-bootstrap";
-import ProductDetailScreen from "./productDetail";
-import App from "../App";
+import React from "react";
+import { Button, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { addItem } from "../redux/reducers";
 
 export default function ProductScreen() {
+  const dispatch = useDispatch();
   return (
     <div className="product-area">
       <Container>
         <div className="product-items mt-5">
-          <Link to="/about" className="mt-5">
-            About
-          </Link>
-          {getProduct().map((props) => {
+          {getProduct().map((product) => {
             return (
-              <div className="c__product-card mt-5" key={props.id}>
+              <div className="c__product-card mt-5" key={product.id}>
                 <div className="c__card-head">
-                  <Link to={"/product/" + props.id + "/" + props.name}>
-                    <img src={props.image} alt={props.name} />
+                  <Link to={"/product/" + product.id + "/" + product.name}>
+                    <img src={product.image} alt={product.name} />
                   </Link>
                 </div>
                 <div className="c__card-body">
-                  <h6 className="product-name">{props.name}</h6>
-                  <h5 className="product-price">{props.price}</h5>
-                  <Button>Masukkan Keranjang</Button>
+                  <h6 className="product-name">{product.name}</h6>
+                  <h5 className="product-price">{product.price}</h5>
+                  <Button
+                    onClick={() => {
+                      dispatch(addItem(product));
+                    }}
+                  >
+                    Masukkan Keranjang
+                  </Button>
                 </div>
               </div>
             );
