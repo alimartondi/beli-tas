@@ -8,6 +8,11 @@ export default function ProductDetailScreen(props) {
   // const name = props.match.params.name;
 
   const selectedProduct = getProductDetail(id);
+
+  if (!selectedProduct) {
+    return <div>Ada kesalahan. ID tidak cocok</div>;
+  }
+
   console.log("selected product:", selectedProduct);
   return (
     <div className="product-detail mt-5">

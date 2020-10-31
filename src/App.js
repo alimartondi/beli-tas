@@ -14,9 +14,13 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={ProductScreen} />
-        <Route exact path="/product:id:name" component={ProductDetailScreen} />
+        <Route
+          exact
+          path="/product/:id/:name"
+          component={ProductDetailScreen}
+        />
         <Route exact path="/about" component={About} />
-        <Route path="/:">ger</Route>
+        {/* <Route path="/:">ger</Route> */}
         <Route>404 Not Found</Route>
       </Switch>
     </BrowserRouter>

@@ -17,7 +17,7 @@ export default function ProductScreen() {
             return (
               <div className="c__product-card mt-5" key={props.id}>
                 <div className="c__card-head">
-                  <Link to={"/product" + props.id + props.name}>
+                  <Link to={"/product/" + props.id + "/" + props.name}>
                     <img src={props.image} alt={props.name} />
                   </Link>
                 </div>
@@ -118,5 +118,7 @@ export function getProduct() {
 }
 
 export function getProductDetail(id) {
-  return productContents.find((content) => content.id === id);
+  const result = productContents.find((content) => content.id === id);
+  console.log("hasil dari getProductDetail: ", result);
+  return result;
 }
